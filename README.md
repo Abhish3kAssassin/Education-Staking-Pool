@@ -29,7 +29,6 @@ Reward Calculation: Rewards are accrued linearly over time, and are released upo
 
 ## Flowchart
 
-```mermaid
 graph TD;
     A[Start] --> B[User Stake Tokens];
     B --> C[Update Rewards];
