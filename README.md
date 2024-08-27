@@ -26,6 +26,25 @@ The getUserInfo() function allows users to check their staked balance and potent
 Technical Specifications
 Token Standard: ERC20, which must be compliant with the ERC20 interface for transfers.
 Reward Calculation: Rewards are accrued linearly over time, and are released upon claiming.
+
+## Flowchart
+
+```mermaid
+graph TD;
+    A[Start] --> B[User Stake Tokens];
+    B --> C[Update Rewards];
+    C --> D[Store Stake Info];
+    D --> E[Emit Staked Event];
+    E --> F{User Wants to Unstake?};
+    F -- Yes --> G[Update Rewards];
+    G --> H[Unstake Tokens];
+    H --> I[Emit Unstaked Event];
+    I --> J{User Wants to Claim Rewards?};
+    F -- No --> J;
+    J -- Yes --> K[Update Rewards];
+    K --> L[Claim Rewards];
+    L --> M[Emit Rewards Claimed Event];
+    J -- No --> N[End];
 Benefits
 This platform fosters a community-driven approach to funding educational projects.
 Users are incentivized to contribute through reward mechanisms.
